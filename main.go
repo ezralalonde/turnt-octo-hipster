@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-    "turnt-octo-hipster/max"
+	"turnt-octo-hipster/max"
 )
 
 func main() {
