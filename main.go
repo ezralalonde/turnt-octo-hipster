@@ -8,9 +8,7 @@ import (
 func main() {
 	var sets int
 	_, err := fmt.Scanf("%d", &sets)
-	if err != nil {
-		panic("could not read sets")
-	}
+	check(err, "could not read sets")
 	for ii := 0; ii < sets; ii++ {
 		var col int
 		_, err := fmt.Scanf("%d", &col)
