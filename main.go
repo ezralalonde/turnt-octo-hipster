@@ -8,30 +8,29 @@ import (
 func main() {
 	var sets int
 	_, err := fmt.Scanf("%d", &sets)
-	check(err, "could not read sets")
+	Check(err, "could not read sets")
 	for ii := 0; ii < sets; ii++ {
 		var col int
 		_, err := fmt.Scanf("%d", &col)
-		check(err, "could not read number of columns")
-		var xx, yy []int
-		for jj := 0; jj < col; jj++ {
-			var val int
-			_, err := fmt.Scanf("%d", &val)
-			check(err, "could not read row")
-			xx = append(xx, val)
-		}
-		for jj := 0; jj < col; jj++ {
-			var val int
-			_, err := fmt.Scanf("%d", &val)
-			check(err, "could not read row")
-			yy = append(yy, val)
-		}
+		Check(err, "could not read number of columns")
+		xx := ReadNextRow(col)
+		yy := ReadNextRow(col)
 		fmt.Printf("The maximum distance is %v\n\n", max.MaximumDistance(xx, yy))
 	}
 }
 
-func check(err error, str string) {
+func Check(err error, str string) {
 	if err != nil {
 		panic(str)
 	}
+}
+
+func ReadNextRow(col int) (xx []int) {
+	for jj := 0; jj < col; jj++ {
+		var val int
+		_, err := fmt.Scanf("%d", &val)
+		Check(err, "could not read row")
+		xx = append(xx, val)
+	}
+	return
 }
